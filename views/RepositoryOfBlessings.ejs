@@ -1,0 +1,140 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+       
+       
+        <style>
+
+
+body {
+			font-family: Arial, sans-serif;
+			background-color: #f7f7f7;
+		}
+		h1 {
+			text-align: center;
+			color: #333;
+           
+		}
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			max-width: 800px;
+			margin: 0 auto;
+			background-color: #fff;
+			box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+		}
+		th, td {
+			padding: 12px;
+			text-align: left;
+			border-bottom: 1px solid #ddd;
+		}
+		th {
+			background-color: #333;
+			color: #fff;
+			font-weight: bold;
+		}
+		tr:hover {
+			background-color: #f5f5f5;
+		}
+		@media screen and (max-width: 100px) {
+			table {
+				font-size: 14px;
+			}
+          
+			th, td {
+				padding: 8px;
+			}
+			th:nth-child(1), td:nth-child(1),
+			th:nth-child(2), td:nth-child(2),
+			th:nth-child(3), td:nth-child(3),
+			th:nth-child(6), td:nth-child(6),
+			th:nth-child(7), td:nth-child(7) {
+				display: none;
+			}
+			tr {
+				border-bottom: 1px solid #ddd;
+				display: block;
+				margin-bottom: 10px;
+			}
+			td {
+				display: block;
+				text-align: right;
+				border-bottom: none;
+				position: relative;
+				padding-left: 50%;
+			}
+			td:before {
+				content: attr(data-label);
+				position: absolute;
+				left: 0;
+				width: 50%;
+				padding-left: 12px;
+				font-weight: bold;
+			}
+         
+           
+		}
+            </style>
+        <title>מאגר הברכות</title>
+    </head>
+    <body>
+        
+            
+                
+            
+                   
+                         
+                        <table>
+                           
+                            <tr>
+                                <th>נייד</th>
+                                <th>שם הכותב</th>
+                                <th>הברכה</th>
+                                <th>צבע הטקסט</th>
+                                <th>צבע הרקע</th>
+                                <th>האם הוצג (1 כן 0 לא)</th>
+                                <th>שעת ההצגה במסך</th>
+                               
+                               
+                            </tr>
+                            <%
+                            if(blessingData.length > 0)
+                            {
+                                blessingData.forEach(function(data){
+                            %>
+                            <tr>
+                                <td><%= data.phone_number %></td>
+                                <td><%= data.full_name %></td>
+                                <td><%= data.the_blessing %></td>
+                                <td><%= data.textColor %></td>
+                                <td><%= data.bgColor %></td>
+                                <td><%= data.identification %></td>
+                                <td><%= data.timee %></td>
+                                <td></td>
+                            </tr>
+                            <%
+                                });
+                            }
+                            else
+                            {
+                            %>
+                            <tr>
+                                <td >אין מידע להצגה</td>
+                            </tr>
+                            <%
+                            }
+                            %>
+                        </table>
+             
+        
+          
+ 
+       
+       
+    </body>
+</html>

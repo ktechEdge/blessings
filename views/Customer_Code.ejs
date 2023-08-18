@@ -1,0 +1,113 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+     
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <style>
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+  h3 {
+    text-align: center;
+ 
+  }
+  
+  form {
+    width: auto;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  max-width: 500px;
+  
+
+  }
+
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  
+
+  input[type="number"]
+  {
+   width:auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    font-size: 16px;
+    max-width: 100%; 
+  height: 100%; 
+  }
+
+ 
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    
+  }
+
+
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  } 
+          
+            
+                   </style>
+        
+
+        <title>זיהוי משתמש</title>
+    </head>
+    <body>
+        
+            
+
+                <h1>זיהוי משתמש</h1>
+
+                     <form method="POST"   action="/blessing_data/valid">
+                                     <h3 style="color: green;">קוד בן 4 ספרות נשלח לנייד שלך</h3
+                                  
+                                    <label for="customercode"></label>
+                                    <input type="number" name="customercode" id="customercode" placeholder="הזן את הקוד כאן" style="text-align: right;" required  />
+                                    
+                                    <input type="hidden" id="phone" name="phone" value=  <%=phone %>>
+                                    <input type="hidden" id="id" name="id" value=  <%=id %>>
+                           
+                    
+
+                        <% if (again ==1) { %>
+                            <h3 style="color: red;">קוד שגוי נסה שוב</h3>
+                            <%}
+                             %>
+
+                           
+                       
+                            <input type="submit"  value="שלח" />
+                        
+                    </form>
+          
+
+           
+
+    </body>
+</html>

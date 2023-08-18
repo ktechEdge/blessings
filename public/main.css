@@ -1,0 +1,59 @@
+body{
+    direction: rtl;
+    background-color: antiquewhite;
+}
+.go_left{
+    text-align: left;
+}
+td,th{
+    /*border: 1px solid black;*/
+}
+td:first-child,td:last-child,th:first-child,th:last-child{
+    border: none;
+}
+tbody tr:nth-child(odd){
+    background-color: lightgray;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    background-color: lightgray;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+main{
+    margin-bottom: 50px;
+}
+.closeBtn{
+    background-color: black;
+    font-weight: bold;
+    font-size: x-large;
+    color: white;
+    float: left;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.closeBtn:hover{color: black;background-color: lightgray;}
+#AddForm,#EditForm {
+    width: 80%;
+    max-width: 500px;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: black 5px 5px 15px;
+    padding: 5px 30px;
+    margin-bottom: 10px;
+}
+#AddForm > input,textarea,
+#EditForm > input,textarea{
+    width: 100%;
+}
+#AddForm > button,
+#EditForm > button{
+    margin: 20px;
+}
+
+#AddForm > label,
+#EditForm > label{
+    display: block;
+}

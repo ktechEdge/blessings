@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+ 
+    
+      <!-- <meta http-equiv="refresh" content="5"  > -->
+     
+      
+   
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- <script>
+      function loadXMLDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            
+            
+            document.getElementById("demo").innerHTML =
+            this.responseText;
+            
+          }
+        };
+        xhttp.open("GET", "/", true);
+        xhttp.send();
+      }
+      </script> -->
+
+      <!-- ------------------------------------- -->
+
+   <!-- <script type="text/javascript">
+      window.onload = setTimeout(function() {
+         document.forms["f1"].submit();
+      }, 10000); -->
+      </script> 
+  </head>
+  <body>
+    
+    
+
+    <!-- <div id="demo">
+      <button type="button" onclick="loadXMLDoc()">Change Content</button>
+      </div> --> 
+
+    <!-- <form id="f1"  method="POST" action="/add_Mark" >
+      
+      <input type="hidden" id="mark" name="mark" value= <%= dp[cnt].id %> > 
+      <input type="submit" value="Submit">
+    </form>  -->
+    
+    
+    <div id="myColor" style="display:none;">
+      <p><%= textColor %></p>
+      <h1><%= bgColor %></h1>
+    </div>
+      
+  
+        <p> <%= dp[cnt].the_blessing %></p>
+       
+
+    <!-- <p>   <%= cnt %></p>
+    
+    
+
+   
+
+  
+ 
+      
+    
+
+    <!-- <table border="1">
+      <% for(var i=0; i < dp.length; i++) { %>
+         <tr>
+           <td><%= dp[i].the_blessing %></td>
+          
+         </tr>
+      <% } %>
+      </table> -->
+      
+  
+
+
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>מערכת ניהול סרטונים</title>
+    <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+<main>
+    <div id="AddForm">
+        <h2>הוספת וידאו</h2>
+        <label for="vid_name">    כותרת לוידאו:</label>
+        <input type="text" name="name" id="vid_name" /><br />
+        <label for="vid_desc">תיאור קצר:</label>
+        <textarea name="abstract" id="vid_desc" ></textarea><br />
+        <label for="vid_path">הקובץ:</label>
+        <input type="file" name="path" id="vid_path" /><br />
+        <button class="saveBtn" onclick="sendVideo();">שמור</button>
+    </div>
+    <div id="EditForm">
+        <h2>עריכת פרטי וידאו</h2>
+        <input type="hidden" id="ed_vid_id" value="" />
+        <label for="ed_vid_name">    כותרת לוידאו:</label>
+        <input type="text" name="name" id="ed_vid_name" /><br />
+        <label for="ed_vid_desc">תיאור קצר:</label>
+        <textarea name="abstract" id="ed_vid_desc" ></textarea><br />
+        <button class="saveBtn" onclick="editVideoTextData();">עדכן</button>
+    </div>
+    <table>
+        <thead>
+        <tr><td colspan="40" class="go_left">
+            <button onclick="showAddForm();">+ Add</button>
+        </td></tr>
+        <tr>
+            <th></th>
+            <th>הוידאו</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="mainTable">  </tbody>
+    </table>
+    <!--<button onclick="fetchTable();">fetch</button>-->
+</main>
+<footer>
+    נבנה באמצעות kTech-Edge - הנבחרת של המכללה הטכנולוגית כנרת
+</footer>
+<script src="main_crud.js"></script>
+</body>
+</html>
