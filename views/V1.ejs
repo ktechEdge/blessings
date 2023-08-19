@@ -5,86 +5,87 @@
     <script>
       
       var p=0;
-      
-     var pos=0;
 
-     function loadXMLDoc() {
+      var pos=0;
+
+      function loadXMLDoc() {
      
      
-      console.log(pos++);
+        console.log("loadXMLDoc",pos++);
 
-          var xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange =   function() {
-            
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange =   function() {
 
-            console.log("ready"+this.readyState);
-              console.log("status"+this.status);
-           if (this.readyState == 4 && this.status == 200) {
-              
-              console.log(this.responseText+"hh");
-             
-                     
-              
-                     if(this.responseText.length!=223){
-                       document.getElementById("demo").innerHTML =
-                       this.responseText;
-                       
-                       var parser = new DOMParser();
-                     var dom = parser.parseFromString(this.responseText, "text/html");
-                     var p = dom.querySelector('p');
-                     var colorText=p.textContent;
-                     console.log("colorText---"+ colorText);
-                     var h=dom.querySelector('h1');
-                     var backgroundColor=h.textContent;
-                     console.log("backgroundColor***"+ backgroundColor);
-                     
-                   
-                        document.getElementById("demo").style.color =colorText;
-                         document.body.style.backgroundColor = backgroundColor;  
-                         
-                        var video = document.getElementById("myVideo");
-                        var text = document.getElementById("demo");
 
-                        
-                        
-                         video.style.display = "none";
-                         text.style.display = "block";
-                           
-                         console.log(this.responseText.length);
-                       clearInterval(interval);                         
-                        setTimeout(function   myGreeting() {
-                          
-                          text.style.display = "none";
-                          document.body.style.margin = "0";
-                          document.body.style.lineHeight = "1.5";
-                           document.body.style.padding = "0";
-                          video.style.display = "block";
-                           
-                         
-                          
-                        
-                         changeintervaltime();
-                            }, 20000);    
-                      
-                       }
-                
-               
-               }
+        console.log("ready"+this.readyState);
+        console.log("status"+this.status);
+         if (this.readyState == 4 && this.status == 200) {
+
+           console.log(this.responseText + "hh");
+
+           if (this.responseText.length > 0) {
+
+
+             if (this.responseText.length != 223) {
+               document.getElementById("demo").innerHTML = this.responseText;
+
+               var parser = new DOMParser();
+               var dom = parser.parseFromString(this.responseText, "text/html");
+               var p = dom.querySelector('p');
+               var colorText = p.textContent;
+               console.log("colorText---" + colorText);
+               var h = dom.querySelector('h1');
+               var backgroundColor = h.textContent;
+               console.log("backgroundColor***" + backgroundColor);
+
+
+               document.getElementById("demo").style.color = colorText;
+               document.body.style.backgroundColor = backgroundColor;
+
+               var video = document.getElementById("myVideo");
+               var text = document.getElementById("demo");
+
+
+               video.style.display = "none";
+               text.style.display = "block";
+
+               console.log(this.responseText.length);
+               clearInterval(interval);
+               setTimeout(function myGreeting() {
+
+                 text.style.display = "none";
+                 document.body.style.margin = "0";
+                 document.body.style.lineHeight = "1.5";
+                 document.body.style.padding = "0";
+                 video.style.display = "block";
+
+
+                 changeintervaltime();
+               }, 20000);
+
+             }
+
+           }
+         }
                  
             
-          };
+      };
         
-          xhttp.open("GET", "/", true);
-          xhttp.send();
-        };
+      xhttp.open("GET", "/BlessList", true);
+      xhttp.send();
+    };
       
 
-        function changeintervaltime()
-        {
-          
-         interval = setInterval(loadXMLDoc,2000);
+    function changeintervaltime()
+    {
 
-         }
+        document.getElementById("myVideo").style.display = "block";
+        document.getElementById("demo").style.display = "none";
+        document.body.style.backgroundColor = "white";
+
+        interval = setInterval(loadXMLDoc,2000);
+
+    }
 
         
         var interval =setInterval(loadXMLDoc, 2000);
@@ -124,7 +125,6 @@
 
 
     <video id="myVideo"  autoplay loop muted controls>
-      <source src="video_ad.mp4" type="video/mp4" >
     </video>
     
   
@@ -132,14 +132,15 @@
     <p id="demo" style="display: none; "> </p>
 
 
-   
-        
-        
-   
-      
-       
-   
-  
+
+
+    <script src="../video_p.js"></script>
+
+
+
+
+
+
 
   </body>
 </html>

@@ -8,7 +8,7 @@ var database = require('../database');
 
 
 var cnt1=0;
-router.get("/", function (request, response, next){
+router.get("/BlessList", function (request, response, next){
 
 	
 
@@ -99,16 +99,18 @@ WHERE the_blessing != '' &&identification =0
 		 }
 
 		   else{
-			response.redirect('/managed_video/SHOW');
-          
-		  } 
+			response.send('');
+
+		  }
 		
 	 
     
 	});
   
 });
-
+router.get("/", function (request, response, next) {
+	response.render("V1", {title:'video'});
+});
 
 
 
