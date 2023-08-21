@@ -9,6 +9,7 @@
 <body>
 <main>
     <div id="AddForm">
+        <button class="closeBtn" onclick="hideForms();">X</button>
         <h2>הוספת וידאו</h2>
         <label for="vid_name">    כותרת לוידאו:</label>
         <input type="text" name="name" id="vid_name" /><br />
@@ -19,6 +20,7 @@
         <button class="saveBtn" onclick="sendVideo();">שמור</button>
     </div>
     <div id="EditForm">
+        <button class="closeBtn" onclick="hideForms();">X</button>
         <h2>עריכת פרטי וידאו</h2>
         <input type="hidden" id="ed_vid_id" value="" />
         <label for="ed_vid_name">    כותרת לוידאו:</label>
