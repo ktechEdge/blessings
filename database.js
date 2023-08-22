@@ -5,11 +5,20 @@ const fs= require('fs');
 var dotenv=require('dotenv');
 dotenv.config();
 
+//require("./gen_params");
+	let HOST     =require("./gen_params").HOST     ;
+	let USER     =require("./gen_params").USER     ;
+	let PASSWORD =require("./gen_params").PASSWORD ;
+	let DATABASE =require("./gen_params").DATABASE ;
+console.log("database.HOST	=",HOST	);
+console.log("database.USER	=",USER	);
+console.log("database.PASSWORD=",PASSWORD);
+console.log("database.DATABASE=",DATABASE);
 const connection= mysql.createConnection({
-	host:process.env.HOST,
- 	user:process.env.USER,
-  	password:process.env.PASSWORD,
-   	database:process.env.DATABASE,
+	host:		HOST		,
+ 	user:		USER		,
+  	password:	PASSWORD	,
+   	database:	DATABASE	,
    /* port:3306,
 	charset: 'utf8mb4',*/
 	//  ssl:{ca:fs.readFileSync("DigiCertGlobalRootCA.crt.pem")}

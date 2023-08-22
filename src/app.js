@@ -33,6 +33,17 @@ app.listen(port, () => {
   http://localhost:${port}`)
 })
 
+global.UID      =require("../gen_params").UID      ;
+global.UN       =require("../gen_params").UN       ;
+global.FROM     =require("../gen_params").FROM     ;
+global.HOST     =require("../gen_params").HOST     ;
+global.USER     =require("../gen_params").USER     ;
+global.PASSWORD =require("../gen_params").PASSWORD ;
+global.DATABASE =require("../gen_params").DATABASE ;
+global.USER2    =require("../gen_params").USER2    ;
+global.DATABASE2=require("../gen_params").DATABASE2;
+
+
 var indexRouter = require('../routes/index');
 app.use('/', indexRouter);
 
