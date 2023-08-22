@@ -30,8 +30,9 @@ WHERE the_blessing != '' &&identification =0
 			else
 			{
 		 
-			console.log(data.length);
-			
+			// console.log("len=",data.length);
+			// 	console.log("data-",data);
+
 	
 			var now = new Date(); 
 			var hours = now.getHours();
@@ -74,15 +75,14 @@ WHERE the_blessing != '' &&identification =0
 				timetotal+=":"+seconds.toString();
 
 			}
-            
-			  
+
 				response.render('d', {title:'data',  dp:data,cnt:cnt1,textColor:data[cnt1].textColor,bgColor:data[cnt1].bgColor});
 
 				var q = `
 			UPDATE blessing_smartblessings   SET identification = 1 , timee="${timetotal}"  WHERE id = "${data[cnt1].id}"
 			`;
-		 
-		 
+
+				// console.log(q);
 			database.query(q, function(error, data){
 		 
 				if(error)
