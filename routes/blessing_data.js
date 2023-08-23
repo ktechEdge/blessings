@@ -3,7 +3,9 @@ var express = require('express');
 
 var router = express.Router();
 
-var database = require('../database');
+var db_M = require('../database');
+var database = db_M.pool;
+
 var dotenv=require('dotenv');
 dotenv.config();
 
@@ -24,7 +26,7 @@ router.get("/repository", function(request, response, next){
 
 		if(error)
 		{
-			throw error; 
+			throw error;
 		}
 		else
 		{
