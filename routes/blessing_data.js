@@ -3,11 +3,17 @@ var express = require('express');
 
 var router = express.Router();
 
-var database = require('../database');
+var db_M = require('../database');
+var database = db_M.pool;
+
 var dotenv=require('dotenv');
 dotenv.config();
 
 var FetchStream = require("fetch").FetchStream;
+
+let UID     =require("../gen_params").UID     ;
+let UN      =require("../gen_params").UN     ;
+let FROM    =require("../gen_params").FROM     ;
 
 
 router.get("/", function(request, response, next){
@@ -24,7 +30,7 @@ router.get("/repository", function(request, response, next){
 
 		if(error)
 		{
-			throw error; 
+			throw error;
 		}
 		else
 		{
@@ -56,7 +62,7 @@ router.post("/add_phone_number", function(request, response, next){
 
 
 	if(phone_number.length==10){
-var fetch = new FetchStream(`http://www.micropay.co.il/ExtApi/ScheduleSms.php?get=1&charset=utf-8&uid=${process.env.UID}&un=${process.env.UN}&from=${process.env.FROM}&msg=Your_Code:${validated}&list=XXX(${phone_number})`);
+var fetch = new FetchStream(`http://www.micropay.co.il/ExtApi/ScheduleSms.php?get=1&charset=utf-8&uid=${UID}&un=${UN}&from=${FROM}&msg=Your_Code:${validated}&list=XXX(${phone_number})`);
  
  
 

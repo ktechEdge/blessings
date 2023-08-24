@@ -14,27 +14,24 @@ console.log("database.HOST	=",HOST	);
 console.log("database.USER	=",USER	);
 console.log("database.PASSWORD=",PASSWORD);
 console.log("database.DATABASE=",DATABASE);
-const connection= mysql.createConnection({
-	host:		HOST		,
- 	user:		USER		,
-  	password:	PASSWORD	,
-   	database:	DATABASE	,
-   /* port:3306,
-	charset: 'utf8mb4',*/
-	//  ssl:{ca:fs.readFileSync("DigiCertGlobalRootCA.crt.pem")}
-	
-	
-	});
 
-connection.connect(function(error){
-	if(error)
-	{
-		throw error;
-	}
-	else
-	{
-		console.log('MySQL Database is connected Successfully');
-	}
+
+
+const pool = mysql.createPool({
+	host:		HOST		,
+	user:		USER		,
+	password:	PASSWORD	,
+	database:	DATABASE	,
+	waitForConnections: true,
+	connectionLimit: 10,
+	maxIdle: 10, // max idle connections, the default value is the same as `connectionLimit`
+	idleTimeout: 60000, // idle connections timeout, in milliseconds, the default value 60000
+	queueLimit: 0,
+	enableKeepAlive: true,
+	keepAliveInitialDelay: 0
 });
 
-module.exports = connection;
+
+module.exports = {
+	pool:pool
+};

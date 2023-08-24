@@ -3,7 +3,9 @@ var express = require('express');
 
 var router = express.Router();
 
-var database = require('../database');
+//var database = require('../database');
+var db_M = require('../database');
+var database = db_M.pool;
 
 var bannedWordsFile = require('../bannedWords.json');
 
