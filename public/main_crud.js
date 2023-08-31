@@ -38,6 +38,7 @@ function showEditForm(id){
     document.getElementById("EditForm").style.display="block";
 }
 async function sendVideo() {
+        document.getElementById('loading-container').style.display = 'flex';
     let input=document.getElementById("vid_path");
     var data = new FormData();
     data.append('video', input.files[0]);
@@ -50,6 +51,7 @@ async function sendVideo() {
     );
     // let res = await response.json();
     let R = await response.json();
+    document.getElementById('loading-container').style.display = 'none';
     //console.log(response);
     fetchTable();
 }
@@ -66,6 +68,7 @@ async function editVideoTextData() {
         }
     );
     let data = await response.json();
+    
     // console.log(response);
     fetchTable();
 }
